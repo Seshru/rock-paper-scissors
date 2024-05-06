@@ -7,6 +7,7 @@ const playerScore = document.getElementById("p-score");
 const compScore = document.getElementById("c-score");
 const infoMsg = document.getElementById("info");
 const winner = document.getElementById("winner");
+const newGame = document.getElementById("restart");
 
 function getComputerChoice() {
 	let choice = Math.random();
@@ -104,6 +105,8 @@ function playRound(humanSelection, computerSelection) {
 		rockBtn.disabled = true;
 		scissorsBtn.disabled = true;
 		paperBtn.disabled = true;
+		newGame.classList.toggle("hidden");
+		newGame.disabled = false;
 	}
 
 	compScore.innerHTML = computerScore;
@@ -121,4 +124,19 @@ scissorsBtn.addEventListener("click", function () {
 paperBtn.addEventListener("click", function () {
 	computerSelection = getComputerChoice();
 	playRound("paper", computerSelection);
+});
+
+newGame.addEventListener("click", function () {
+	humanScore = 0;
+	computerScore = 0;
+	compScore.innerHTML = computerScore;
+	playerScore.innerHTML = humanScore;
+	infoMsg.innerHTML = "Select your weapon!";
+	playerImg.src = "./images/player.png";
+	computerImg.src = "./images/player.png";
+	newGame.classList.toggle("hidden");
+	rockBtn.disabled = false;
+	scissorsBtn.disabled = false;
+	paperBtn.disabled = false;
+	newGame.disabled = true;
 });
