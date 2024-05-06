@@ -6,6 +6,7 @@ const paperBtn = document.getElementById("paper");
 const playerScore = document.getElementById("p-score");
 const compScore = document.getElementById("c-score");
 const infoMsg = document.getElementById("info");
+const winner = document.getElementById("winner");
 
 function getComputerChoice() {
 	let choice = Math.random();
@@ -94,6 +95,17 @@ function playRound(humanSelection, computerSelection) {
 				break;
 		}
 	}
+	if (humanScore == 5 || computerScore == 5) {
+		if (humanScore == 5) {
+			winner.innerHTML = "Player wins!";
+		} else if (computerScore == 5) {
+			winner.innerHTML = "Computer wins!";
+		}
+		rockBtn.disabled = true;
+		scissorsBtn.disabled = true;
+		paperBtn.disabled = true;
+	}
+
 	compScore.innerHTML = computerScore;
 	playerScore.innerHTML = humanScore;
 	infoMsg.innerHTML = msg;
