@@ -1,25 +1,53 @@
 function getComputerChoice() {
 	let choice = Math.random();
-	let computer_choice;
+	let computerChoice;
 	if (choice < 0.33) {
-		computer_choice = "Rock";
+		computerChoice = "Rock";
 	} else if (choice < 0.66) {
-		computer_choice = "Scissors";
+		computerChoice = "Scissors";
 	} else {
-		computer_choice = "Paper";
+		computerChoice = "Paper";
 	}
-	return computer_choice.toLowerCase();
+	return computerChoice.toLowerCase();
 }
 
 function getHumanChoice() {
-	let human_choice;
+	let humanChoice;
 	do {
-		human_choice = prompt("Please enter rock, paper or scissors");
+		humanChoice = prompt("Please enter rock, paper or scissors");
 	} while (
-		human_choice.toLowerCase() !== "rock" &&
-		human_choice.toLowerCase() !== "scissors" &&
-		human_choice.toLowerCase() !== "paper"
+		humanChoice.toLowerCase() !== "rock" &&
+		humanChoice.toLowerCase() !== "scissors" &&
+		humanChoice.toLowerCase() !== "paper"
 	);
-	console.log(human_choice.toLowerCase());
-	return human_choice.toLowerCase();
+	console.log(humanChoice.toLowerCase());
+	return humanChoice.toLowerCase();
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playGame() {
+	let humanSelection;
+	let computerSelection;
+	function playRound(humanSelection, computerSelection) {
+		if (humanSelection == computerSelection) {
+			console.log(`DRAAAAAAAAAAAAW!`);
+		} else if (
+			(humanSelection === "rock" && computerSelection === "scissors") ||
+			(humanSelection === "paper" && computerSelection === "rock") ||
+			(humanSelection === "scissors" && computerSelection === "paper")
+		) {
+			humanScore += 1;
+			console.log(`You win - ${humanSelection} beats ${computerSelection}`);
+		} else {
+			computerScore += 1;
+			console.log(`You lose - ${computerSelection} beats ${humanSelection}`);
+		}
+	}
+	for (let i = 0; i < 6; i++) {
+		humanSelection = getHumanChoice();
+		computerSelection = getComputerChoice();
+		playRound(humanSelection, computerSelection);
+	}
 }
