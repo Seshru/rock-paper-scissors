@@ -1,3 +1,4 @@
+const playBtn = document.getElementById("play");
 function getComputerChoice() {
 	let choice = Math.random();
 	let computerChoice;
@@ -24,12 +25,11 @@ function getHumanChoice() {
 	return humanChoice.toLowerCase();
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
 function playGame() {
 	let humanSelection;
 	let computerSelection;
+	let humanScore = 0;
+	let computerScore = 0;
 	function playRound(humanSelection, computerSelection) {
 		if (humanSelection == computerSelection) {
 			console.log(`DRAAAAAAAAAAAAW!`);
@@ -44,10 +44,5 @@ function playGame() {
 			computerScore += 1;
 			console.log(`You lose - ${computerSelection} beats ${humanSelection}`);
 		}
-	}
-	for (let i = 0; i < 6; i++) {
-		humanSelection = getHumanChoice();
-		computerSelection = getComputerChoice();
-		playRound(humanSelection, computerSelection);
 	}
 }

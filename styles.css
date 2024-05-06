@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+img {
+    width: 80px; 
+    height: 80px;
+}
+
+.containers { 
+    margin-top: 15vh;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.container { 
+    text-align: center;
+}
+
+.container img {
+    width: 150px;
+    height: 150px;
+    padding: 0;
+    margin: 0;
+}
+
+.play-info {
+    margin: 0 auto;
+    text-align: center;
+    width: 50vw;
+}
+
+.buttons { 
+    display: flex;
+    padding-top: 50px;
+    justify-content: space-evenly;
+}
+ 
